@@ -1,4 +1,4 @@
-# Design Patterns for Humans - Java Implementation #
+# Design Patterns for Humans™ - Java Implementation #
 
 I wanted to strengthen my foundation of Design Patterns. I found one interesting guide on Reddit: [Design Patterns for Humans™ - An ultra-simplified explanation](https://github.com/kamranahmedse/design-patterns-for-humans "Design Patterns for Humans")
 
@@ -47,3 +47,45 @@ Being in professional software engineering field since last couple of years, I'v
 
 ### Simple Factory ###
 Simple factory simply generates an instance for client without exposing any instantiation logic to the client
+
+**Code**
+
+    interface Door {
+		public float getWidth();
+		public float getHeight();
+	}
+
+	class WoodenDoor implements Door {
+		private float width;
+		private float height;
+
+		public WoodenDoor(float width, float height) {
+			this.width = width;
+			this.height = height;
+		}
+
+		public float getWidth() {
+			return width;
+		}
+
+		public float getHeight() {
+			return height;
+		}	
+	}
+
+	class DoorFactory {
+		public static Door makeDoor(float width, float height) {
+			return new WoodenDoor(width, height);
+		}
+	}
+
+	Usage:
+	Door myDoor = DoorFactory.makeDoor(100, 200);
+	Sysout("Width: " + myDoor.getWidth());
+	Sysout("Height: " + myDoor.getHeight());
+
+	
+
+		
+
+
